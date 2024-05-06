@@ -1,0 +1,149 @@
+<!--Name of the project: In-class #2
+
+    Date: 2023-06-06
+
+    Student: Diego A. Ramos
+
+    Section: 4 - Waterloo Spring
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <h1>Press this button!</h1>
+</head>
+
+
+<body>
+
+    <div class="button">
+        <input type="button" value="Click this button" onclick="button()" id="animatedButton" />
+    </div>
+
+    <p id="countdown">
+
+    <div class="container">
+        <img id="myRocket" src="rocket.jpg" alt="Animated Image" width="50" height="50">
+    </div>
+
+    </p>
+
+
+</body>
+
+<style>
+    h1 {
+        text-align: center;
+        color: aliceblue;
+    }
+
+    .button {
+        text-align: center;
+    }
+
+    .button input[type="button"] {
+        background-color: aquamarine;
+    }
+
+    h2 {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    br {
+
+        text-align: center;
+    }
+
+    #countdown {
+
+        text-align: center;
+        padding: 1px;
+        font-weight: bold;
+        font-size: large;
+        color: chartreuse;
+    }
+
+    html {
+        background-image: url('2001.jpg');
+    }
+
+    .image {
+
+        position: relative;
+
+    }
+
+    #myRocket {
+        position: absolute;
+        bottom: 0;
+        animation-name: moveUp;
+        animation-duration: 3s;
+        animation-timing-function: ease-out;
+
+    }
+
+    @keyframes moveUp {
+        0% {
+            bottom: 0;
+        }
+
+        100% {
+            bottom: 100%;
+        }
+    }
+</style>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+
+<script>
+
+
+
+
+    function button() {
+
+        let signal = "BLASTOFF!";
+        let countdown = 10;
+        function timer() {
+
+
+            $("#countdown").append(`${countdown}..<br><br>`);
+
+
+            countdown--;
+
+            if (countdown == 0) {
+
+                clearInterval(time);
+
+                $("#countdown").append(`${signal}<br>`);
+
+
+                rocketLaunch();
+
+            }
+
+        }
+
+        let time = setInterval(timer, 1000);
+
+
+        function rocketLaunch() {
+
+            var image = document.getElementById("myRocket");
+            image.style.animationPlayState = "running";
+        }
+
+    }
+
+
+</script>
+
+
+</html>
